@@ -9,7 +9,7 @@ possiblement dans une interface streamlit
 - Ecrire des tests avant de publier sur Pypi
 `data/`
 - text.py:
-    - encodage de texte : transformation en vecteurs (tfidf, word2vec, etc.)
+    - encodage de texte : transformation en vecteurs (tfidf, word2vec, etc.) -> dans prepare() ajouter encode=None avec choix de l'encoder
     - stemming
     - retirer les mots très fréquents
     - retirer les mots rares
@@ -55,9 +55,17 @@ mon_projet/
 │   │   └── enums.py
 │   └── resources/
 │       └── stopwords_fr.txt
+├── tests/
+│       └── test_utils.py
 ├── .gitignore
 ├── poetry.lock
 ├── pyproject.toml
 └── README.md
+
+```
+
+
+## Création du package
+```
 
 ```

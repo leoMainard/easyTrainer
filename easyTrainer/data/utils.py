@@ -1,5 +1,5 @@
 from importlib.resources import files
-from easyTrainer.config.enum import ResourcePath
+from easyTrainer.config.enums import ResourcePath
 
 def load_stopwords():
     file = ResourcePath.STOPWORDS_FR.value

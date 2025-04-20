@@ -58,6 +58,7 @@ class TextualPreparator(BasePreparator):
             to_lower: Optional[int] = None,
             to_upper: Optional[int] = None,
             drop_stopwords: Optional[int] = None,
+            drop_big_spaces: Optional[int] = None,
             drop_digits: Optional[int] = None,
             lemmatize: Optional[int] = None,
             drop_special_characters: Optional[int] = None,
@@ -80,6 +81,9 @@ class TextualPreparator(BasePreparator):
             drop_stopwords (Optional[int]):
                 Order in which to remove stopwords.
             
+            drop_big_spaces (Optional[int]):
+                Order in which to remove multiple spaces.
+
             drop_digits (Optional[int]): 
                 Order in which to remove digits.
             
@@ -120,6 +124,7 @@ class TextualPreparator(BasePreparator):
             "txt_to_upper": to_upper,
             "txt_to_lower": to_lower,
             "drop_stopwords": drop_stopwords,
+            "drop_big_spaces": drop_big_spaces,
             "drop_digits": drop_digits,
             "lemmatize": lemmatize,
             "drop_special_characters": drop_special_characters,
@@ -162,6 +167,10 @@ class TextualPreparator(BasePreparator):
         filtered_words = [word for word in words if word.lower() not in self.stopwords]
         return " ".join(filtered_words)
 
+    def drop_big_spaces(self, txt: str) -> str:
+        """ Remove multiple spaces from the text """
+        return re.sub(r'\s+', ' ', txt).strip()
+    
     def drop_digits(self, txt: str) -> str:
         """ Remove all digits from the text """
         return re.sub(r'\d+', ' ', txt)
