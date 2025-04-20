@@ -1,0 +1,41 @@
+# Environnement virtuel Poetry (si in-project est activé)
+.venv/
+
+# Fichiers compilés Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+
+# Dépendances et artefacts de build
+poetry.lock
+dist/
+build/
+*.egg-info/
+
+# Configuration des IDEs (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+*.iml
+
+# Tests et rapports
+htmlcov/
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Fichiers spécifiques à Jupyter Notebook
+.ipynb_checkpoints/
+
+# Fichiers sensibles (ajoute les valeurs sensibles dans un .env séparé)
+.env
+*.secrets
+
+# Docker (si utilisé)
+docker-compose.override.yml

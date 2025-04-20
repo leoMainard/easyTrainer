@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "easytrainer"
+version = "0.1.0"
+description = "A package to facilitate your model training"
+authors = [
+    { name = "leoMainard" }
+]
+readme = "README.md"
+packages = [
+    { include = "easyTrainer" }
+]
+include = [
+    { path = "easyTrainer/resources/stopwords_fr.txt", format = "text" }
+]
+dependencies = [
+    "pandas>=2.2.3,<3.0.0",
+    "scikit-learn>=1.6.1,<2.0.0",
+    "spacy>=3.8.4,<4.0.0"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
