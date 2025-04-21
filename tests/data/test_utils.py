@@ -43,3 +43,33 @@ def test_load_stopwords_file_not_found():
         result = load_stopwords()
 
     assert result == set()
+
+def test_load_stopwords_file_empty():
+    fake_file_content = ""
+    mock_file = mock_open(read_data=fake_file_content)
+
+    mock_resource = MagicMock()
+    mock_resource.open = mock_file
+
+    mock_joinpath = MagicMock(return_value=mock_resource)
+    mock_files = MagicMock(return_value=MagicMock(joinpath=mock_joinpath))
+
+    with patch("easyTrainer.data.utils.files", mock_files):
+        result = load_stopwords()
+
+    assert result == set()
+
+def test_load_stopwords_file_with_empty_lines():
+    fake_file_content = "\nle\n\nla\nles\n"
+    mock_file = mock_open(read_data=fake_file_content)
+
+    mock_resource = MagicMock()
+    mock_resource.open = mock_file
+
+    mock_joinpath = MagicMock(return_value=mock_resource)
+    mock_files = MagicMock(return_value=MagicMock(joinpath=mock_joinpath))
+
+    with patch("easyTrainer.data.utils.files", mock_files):
+        result = load_stopwords()
+
+    assert result == ["le", "la", "les"]

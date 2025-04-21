@@ -27,7 +27,10 @@ def test_test_method(classifier_model, sample_data):
     classifier_model.fit(X, y)
     report = classifier_model.test(X, y)
     assert isinstance(report, pd.DataFrame)
-    assert "precision" in report.columns
+    assert "precision" in report.T.columns
+    assert "recall" in report.T.columns
+    assert "f1-score" in report.T.columns
+    assert "support" in report.T.columns
 
 def test_validation_method(classifier_model, sample_data):
     X, y = sample_data
@@ -42,11 +45,11 @@ def test_predict_with_threshold(classifier_model, sample_data):
     classifier_model.fit(X, y)
     predictions = classifier_model.predict(X, threshold=0.6, fallback_class=0)
     assert len(predictions) == len(y)
-    assert all(isinstance(pred, int) for pred in predictions)
+    assert all(isinstance(pred, np.int64) for pred in predictions)
 
 def test_predict_without_threshold(classifier_model, sample_data):
     X, y = sample_data
     classifier_model.fit(X, y)
     predictions = classifier_model.predict(X)
     assert len(predictions) == len(y)
-    assert all(isinstance(pred, int) for pred in predictions)
+    assert all(isinstance(pred, np.int64) for pred in predictions)
