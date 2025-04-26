@@ -6,7 +6,7 @@ Works with scikit-learn.
 
 
 ## Installation
-```
+```python
 pip install easytrainer
 ```
 
@@ -16,7 +16,7 @@ pip install easytrainer
 
 Data preparators integrate preparation methods. When instantiating the preparator, simply choose the order of execution for each method and fill in the parameters if needed.
 
-```
+```python
 from easytrainer.data.text import TextualPreparator
 
 preparator = TextualPreparator(
@@ -46,7 +46,7 @@ Coming soon:
 
 Then call ``prepare()`` to preprocess your data:
 
-```
+```python
 data = [
     "J'adore cette musique, elle est magnifique.",
     "Je déteste ce film, il est ennuyeux."
@@ -78,7 +78,7 @@ Returns a dictionary:
 
 Easily train and evaluate your models.
 
-```
+```python
 from sklearn.ensemble import RandomForestClassifier
 
 from easytrainer.models.classifier import SklearnClassifierModel
