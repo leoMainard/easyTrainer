@@ -1,13 +1,18 @@
 [tool.poetry]
 name = "easytrainer"
-version = "0.1.0"
+version = "0.1.3"
 description = "A package to facilitate your model training"
-authors = ["leoMainard"]
+authors = ["leoMainard <leomainard63@gmail.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/leoMainard/easytrainer"
 packages = [
-    { include = "easyTrainer" }
+    { include = "easytrainer" }
 ]
-include = ["easyTrainer/resources/stopwords_fr.txt"]
+
+include = [
+    "easytrainer/resources/stopwords_fr.txt"
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.13"

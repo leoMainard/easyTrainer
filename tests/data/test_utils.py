@@ -1,4 +1,4 @@
-from easyTrainer.data.utils import extract_params, load_stopwords
+from easytrainer.data.utils import extract_params, load_stopwords
 
 from unittest.mock import mock_open, patch, MagicMock
 
@@ -27,7 +27,7 @@ def test_load_stopwords_file_found():
     mock_joinpath = MagicMock(return_value=mock_resource)
     mock_files = MagicMock(return_value=MagicMock(joinpath=mock_joinpath))
 
-    with patch("easyTrainer.data.utils.files", mock_files):
+    with patch("easytrainer.data.utils.files", mock_files):
         result = load_stopwords()
 
     assert result == ["le", "la", "les"]
@@ -39,7 +39,7 @@ def test_load_stopwords_file_not_found():
     mock_joinpath = MagicMock(return_value=mock_resource)
     mock_files = MagicMock(return_value=MagicMock(joinpath=mock_joinpath))
 
-    with patch("easyTrainer.data.utils.files", mock_files):
+    with patch("easytrainer.data.utils.files", mock_files):
         result = load_stopwords()
 
     assert result == set()
@@ -54,7 +54,7 @@ def test_load_stopwords_file_empty():
     mock_joinpath = MagicMock(return_value=mock_resource)
     mock_files = MagicMock(return_value=MagicMock(joinpath=mock_joinpath))
 
-    with patch("easyTrainer.data.utils.files", mock_files):
+    with patch("easytrainer.data.utils.files", mock_files):
         result = load_stopwords()
 
     assert result == set()
@@ -69,7 +69,7 @@ def test_load_stopwords_file_with_empty_lines():
     mock_joinpath = MagicMock(return_value=mock_resource)
     mock_files = MagicMock(return_value=MagicMock(joinpath=mock_joinpath))
 
-    with patch("easyTrainer.data.utils.files", mock_files):
+    with patch("easytrainer.data.utils.files", mock_files):
         result = load_stopwords()
 
     assert result == ["le", "la", "les"]

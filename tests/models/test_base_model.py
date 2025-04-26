@@ -1,5 +1,5 @@
 import pytest
-from easyTrainer.models.base_model import BaseModel
+from easytrainer.models.base_model import BaseModel
 import os
 
 def test_base_model_is_abstract():
@@ -16,7 +16,7 @@ def test_base_model_methods_are_abstract():
         def test(self, *args, **kwargs):
             pass
 
-        def validation(self, *args, **kwargs):
+        def evaluate(self, *args, **kwargs):
             pass
 
         def predict(self, X):
@@ -34,7 +34,7 @@ def test_save_and_load():
         def test(self, *args, **kwargs):
             pass
 
-        def validation(self, *args, **kwargs):
+        def evaluate(self, *args, **kwargs):
             pass
 
         def predict(self, X):

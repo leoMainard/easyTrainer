@@ -1,4 +1,4 @@
-from easyTrainer.data.base_preparator import BasePreparator
+from easytrainer.data.base_preparator import BasePreparator
 
 class DummyPreparator(BasePreparator):
     """

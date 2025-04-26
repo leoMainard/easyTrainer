@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import make_classification
-from easyTrainer.models.classifier import SklearnClassifierModel
+from easytrainer.models.classifier import SklearnClassifierModel
 
 @pytest.fixture
 def sample_data():
@@ -14,6 +14,7 @@ def sample_data():
 def classifier_model():
     model = RandomForestClassifier(random_state=42)
     return SklearnClassifierModel(model=model)
+
 
 def test_fit_with_grid_search(classifier_model, sample_data):
     X, y = sample_data
@@ -32,10 +33,10 @@ def test_test_method(classifier_model, sample_data):
     assert "f1-score" in report.T.columns
     assert "support" in report.T.columns
 
-def test_validation_method(classifier_model, sample_data):
+def test_evaluate_method(classifier_model, sample_data):
     X, y = sample_data
     classifier_model.fit(X, y)
-    results = classifier_model.validation(X, y, fallback_class=0, validation_thresholds=[0.5, 0.7])
+    results = classifier_model.evaluate(X, y, fallback_class=0, validation_thresholds=[0.5, 0.7])
     assert "thresholds" in results
     assert len(results["thresholds"]) == 2
     assert all(isinstance(score, float) for score in results["accuracy"])

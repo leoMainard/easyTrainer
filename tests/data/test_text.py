@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from easyTrainer.data.text import TextualPreparator, TextualEncoder
+from easytrainer.data.text import TextualPreparator, TextualEncoder
 from sklearn.feature_extraction.text import CountVectorizer
 
 @pytest.fixture

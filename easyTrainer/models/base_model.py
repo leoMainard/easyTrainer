@@ -14,7 +14,7 @@ class BaseModel(ABC):
         pass
 
     @abstractmethod
-    def validation(self, *args, **kwargs):
+    def evaluate(self, *args, **kwargs):
         pass
 
     @abstractmethod

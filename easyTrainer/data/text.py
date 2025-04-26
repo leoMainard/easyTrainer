@@ -6,8 +6,8 @@ import pandas as pd
 from typing import Optional, Union, List, Tuple, Dict, Callable
 from types import FunctionType
 
-from easyTrainer.data.base_preparator import BasePreparator
-from easyTrainer.data.utils import extract_params, load_stopwords
+from easytrainer.data.base_preparator import BasePreparator
+from easytrainer.data.utils import extract_params, load_stopwords
 
 class TextualPreparator(BasePreparator):
     """

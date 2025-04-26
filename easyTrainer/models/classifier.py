@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report, f1_score, accuracy_score
 
-from easyTrainer.models.base_model import BaseModel
+from easytrainer.models.base_model import BaseModel
 
 class SklearnClassifierModel(BaseModel):
     """
@@ -64,7 +64,7 @@ class SklearnClassifierModel(BaseModel):
         y_val_pred = self.best_fit_model.predict(X)
         return pd.DataFrame(classification_report(y, y_val_pred, output_dict=True))
 
-    def validation(self, X, y, fallback_class: int, validation_thresholds: list = None):
+    def evaluate(self, X, y, fallback_class: int, validation_thresholds: list = None):
         """
         Evaluates model performance on the validation set across different thresholds.
 
