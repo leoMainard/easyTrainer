@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "easytrainer"
-version = "0.1.3"
+version = "0.1.4"
 description = "A package to facilitate your model training"
 authors = ["leoMainard <leomainard63@gmail.com>"]
 readme = "README.md"

@@ -191,8 +191,8 @@ class TextualPreparator(BasePreparator):
             try:
                 import spacy
                 self._nlp = spacy.load("fr_core_news_sm")
-            except ImportError:
-                raise ImportError("Please install spaCy and the French model: `pip install spacy && python -m spacy download fr_core_news_sm`")
+            except OSError:
+                raise OSError("Please install spaCy and the French model: `pip install spacy && python -m spacy download fr_core_news_sm`")
         doc = self._nlp(txt)
         return " ".join([token.lemma_ for token in doc])
 
